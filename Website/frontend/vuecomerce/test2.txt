@@ -1,0 +1,122 @@
+<template>
+  <div class="container">
+    <h1 class="text-center p-5">Our Products List</h1>
+
+    <div class="products" id="products">
+      <div class="container">
+        <swiper
+        :effect="'coverflow'"
+        :grabCursor="true"
+        :centeredSlides="true"
+        :slidesPerView="'auto'"
+        :coverflowEffect="{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }"
+        :pagination="true"
+        :modules="modules"
+        class="mySwiper"
+        >
+          <swiper-slide v-for="product in products" :key="product.id">
+            <img :src="`/src/assets/images/${product.filename}.jpg`" :alt="Image">
+          </swiper-slide>
+        </swiper>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import axios from 'axios';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+
+export default {
+  data() {
+    return {
+      
+      products: []
+    };
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const onSwiper = (swiper) => {
+      console.log(swiper);
+    };
+    const onSlideChange = () => {
+      console.log('slide change');
+    };
+    return {
+      modules: [EffectCoverflow, Pagination],
+      onSwiper,
+      onSlideChange
+    };
+  },
+  mounted() {
+    this.fetchProducts();
+  },
+  methods: {
+    fetchProducts() {
+      axios.get('http://localhost/backend/GetProducts.php')
+        .then((response) => {
+          this.products = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }
+};
+</script>
+
+<style scoped lang="scss">
+
+
+
+
+.container {
+  max-width: 1200px; /* Increase the max-width to make it wider */
+  margin: 0 auto;
+}
+
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+</style>

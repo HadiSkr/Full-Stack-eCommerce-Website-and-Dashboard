@@ -1,0 +1,71 @@
+<div class="header">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="main-container">
+    <div class="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="main">
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef> Role </th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary" (click)="openRoleDialog(element)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              {{ element.role }}
+            </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{ element.email }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone </th>
+            <td mat-cell *matCellDef="let element"> {{ element.phone }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="permissions">
+            <th mat-header-cell *matHeaderCellDef> Permissions </th>
+            <td mat-cell *matCellDef="let element">
+              <ng-container *ngFor="let permission of element.permissions">
+                {{ permission }},
+              </ng-container>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="warn" (click)="deleteuser(element.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of users">
+        </mat-paginator>
+      </div>
+      <app-rolepermission> </app-rolepermission>  
+
+    </div>
+  </div>
+

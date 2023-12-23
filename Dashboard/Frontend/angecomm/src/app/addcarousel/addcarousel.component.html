@@ -1,0 +1,34 @@
+<div class="header">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="main-container">
+    <div class="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="main">
+
+<div class="card">
+  <div class="card-header">
+    <h1>Add Carousel</h1>
+  </div>
+  <div class="card-body">
+    <form (submit)="submitForm()" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name12">Name</label>
+        <input type="text" id ='name12' class="form-control" placeholder="Carousel Name" [(ngModel)]="title" [ngModelOptions]="{ standalone: true }" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" id = 'description' rows="3" class="form-control" placeholder = "description" [(ngModel)]="description" [ngModelOptions]="{ standalone: true }"required></textarea>
+      </div>
+
+      
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+

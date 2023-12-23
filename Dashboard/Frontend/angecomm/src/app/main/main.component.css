@@ -1,0 +1,58 @@
+.charts{
+
+    display: flex;
+    margin: 20px;
+}
+
+.pie{
+
+    flex: 1;
+    box-shadow: 10px 10px 5px #aaaaaa;
+
+    margin-right: 20px;
+}
+
+.line{
+    flex: 1;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+.main-container {
+    display: flex;
+    .sidebar {
+      width: 350px;
+      min-width: 230px;
+      min-height: calc(100vh - 70px);
+      background-color: #113c60;
+      color: #fff;
+      box-shadow: 5px 5px 5px #939393;
+      @media only screen and (max-width: 1300px) {
+        width: 100px;
+        min-width: 100px;
+      }
+    }
+    .main {
+      padding: 30px;
+    }
+    
+    table {
+        width: 100%;
+      }
+  }
+  .product-image {
+    width: 120px;  
+    height: auto;   
+  }
+  .charts {
+    width: 100%;
+  }
+  
+  .pie, 
+  .line {
+    width: 100%;
+  }
+  .pie,
+.line {
+  width: 100%;
+  box-sizing: border-box;
+}

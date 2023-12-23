@@ -1,0 +1,67 @@
+<div class="header">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="main-container">
+    <div class="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="main">
+      <div class="mat-elevation-z8">
+        <div class="button-container">
+          <a (click)="navigateToAdd()" > 
+          <button mat-raised-button color="primary" >
+            <mat-icon>add</mat-icon>
+            Add Category
+          </button>
+          </a>
+        </div>
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+        <ng-container matColumnDef="categoryname">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.categoryname}} </td>
+        </ng-container>
+
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="sort_order">
+            <th mat-header-cell *matHeaderCellDef> sort_order </th>
+            <td mat-cell *matCellDef="let element"> {{element.sort_order}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="filename">
+            <th mat-header-cell *matHeaderCellDef> Image </th>
+            <td mat-cell *matCellDef="let element"> 
+              <img class="product-image" [src]="'http://localhost/CategoriesImages/' + element.filename" [alt]="element.name" />
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td  mat-cell *matCellDef="let element">
+                
+                <button mat-icon-button color="primary"(click)="navigateToEdit(element.id)" >
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deletecategory(element.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+        </mat-paginator>  
+      </div>
+    </div>
+  </div>

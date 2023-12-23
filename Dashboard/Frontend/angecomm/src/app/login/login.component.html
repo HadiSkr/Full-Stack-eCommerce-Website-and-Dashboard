@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="text-center">
+            <h2>LogIn</h2>
+            <h6>Please Enter Email & Password!</h6>
+          </div>
+          <form (submit)="signin()">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email" [(ngModel)]="email" [ngModelOptions]="{ standalone: true }">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword11">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword11" placeholder="Password"
+                [(ngModel)]="password" [ngModelOptions]="{ standalone: true }">
+            </div>
+            <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+            <button type="submit" class="btn btn-primary">LogIn</button>
+          </form>
+            <a style="color: azure; margin-top: 10px;" routerLink="/signup"> New User? Click to sign up!!</a>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h2>SignUp</h2>
+          <h6>Register yourself!!</h6>
+        </div>
+        <form (submit)="signup()">
+          <div class="form-group">
+            <label for="exampleInputName">Full Name</label>
+            <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter your name" [(ngModel)]="full_name " [ngModelOptions]="{ standalone: true }">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email address" [(ngModel)]="Email" [ngModelOptions]="{ standalone: true }">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPhone">Phone Number</label>
+            <input type="number" class="form-control" id="exampleInputPhone" placeholder="Phone Number"[(ngModel)]="Phone" [ngModelOptions]="{ standalone: true }">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password"[(ngModel)]="Password" [ngModelOptions]="{ standalone: true }">
+          </div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+          <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+        </form>
+        <a style="color: azure; margin-top: 10px;" routerLink="/login">New User? Click to sign up!</a>
+      </div>
+    </div>
+  </div>
+</div>

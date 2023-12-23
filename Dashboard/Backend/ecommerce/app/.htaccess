@@ -1,0 +1,19 @@
+LoadModule headers_module modules/mod_headers.so
+<Limit OPTIONS>
+    Allow from all 
+  </Limit>  
+<FilesMatch ".(ttf|otf|eot|woff|woff2)$">
+    <IfModule mod_headers.c>
+      Allow from all
+      Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+  </FilesMatch>
+<IfModule authz_core_module>
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET,POST,OPTIONS,DELETE,PUT"
+</IfModule>
+<IfModule !authz_core_module>
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET,POST,OPTIONS,DELETE,PUT"
+    Allow from all
+</IfModule>

@@ -1,0 +1,4 @@
+.role-select-panel{
+    max-height: 200px; 
+      overflow-y: auto; 
+}
