@@ -2,6 +2,15 @@
 
 This repository contains a full-stack E-commerce website and a dashboard that was developed to meet the requirements of a client's business. The project encompasses both the frontend and backend components, utilizing various technologies to deliver a comprehensive solution. The website provides a user-friendly interface for customers to browse and purchase products, while the dashboard offers administrative functionalities for managing categories, products, carousels, and user permissions.
 
+## Demo
+
+### Website
+Watch the demo of the website [here](https://www.youtube.com/watch?v=f-fbO6T2h-Y).
+
+### Dashboard
+Watch the demo of the dashboard [here](https://www.youtube.com/watch?v=fjC8WHy1lik&t=183s).
+
+
 ## Website Features
 
 ### Home Page
